@@ -8,15 +8,20 @@ public class BaseEnemy : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(IsDamageable(other.gameObject))
         {
             // contact with the player
-            PlayerContacted(other.gameObject);
+            PlayerContacted();
         }
     }
 
-    public virtual void PlayerContacted(GameObject p)
+    public virtual void PlayerContacted()
     {
         Debug.Log("contact with player");
+    }
+
+    public bool IsDamageable(GameObject o)
+    {
+        return o.CompareTag("Player") || o.CompareTag("Enemy");
     }
 }

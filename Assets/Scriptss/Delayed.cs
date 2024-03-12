@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Delayed : BaseEnemy
+public class Delayed : Explosion
 {
 
     public float explosionTime = 1.5f;
-
     float timer = 0f;
 
     // Update is called once per frame
@@ -18,7 +17,7 @@ public class Delayed : BaseEnemy
             if(timer <= 0)
             {
                 // explosion
-                Destroy(gameObject);
+                Explode();
             }
         }
     }
