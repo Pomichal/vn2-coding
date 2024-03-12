@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Delayed : Explosion
+public class Delayed : Exploding
 {
 
     public float explosionTime = 1.5f;
@@ -22,7 +22,7 @@ public class Delayed : Explosion
         }
     }
 
-    public override void PlayerContacted(GameObject p)
+    public override void PlayerContacted()
     {
         timer = explosionTime;
     }
