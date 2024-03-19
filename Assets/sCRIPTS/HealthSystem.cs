@@ -11,7 +11,8 @@ public class HealthSystem : MonoBehaviour
 
     void Start()
     {
-        currentHp = maxHp;
+        Heal();
+        EnemySpawner.onEnemySpawned.AddListener(Heal);
     }
 
     public void TakeDamage(int damage)
@@ -21,5 +22,10 @@ public class HealthSystem : MonoBehaviour
         {
             Debug.Log("dead");
         }
+    }
+
+    public void Heal()
+    {
+        currentHp = maxHp;
     }
 }

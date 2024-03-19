@@ -11,19 +11,16 @@ public class Delayed : Exploding
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0)
+        if(timer > Time.time)
         {
-            timer -= Time.deltaTime;
-            if(timer <= 0)
-            {
-                // explosion
-                Explode();
-            }
+            // explosion
+            Explode();
+            timer = 0f;
         }
     }
 
     public override void PlayerContacted()
     {
-        timer = explosionTime;
+        timer = TimerHelper.GetDoneTime(explosionTime);
     }
 }
