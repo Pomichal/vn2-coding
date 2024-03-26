@@ -9,13 +9,13 @@ public class HealthSystem : MonoBehaviour
 
     public int currentHp;
 
-    void Start()
+    public virtual void Start()
     {
         Heal();
         EnemySpawner.onEnemySpawned.AddListener(Heal);
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHp -= damage;
         if(currentHp <= 0)
